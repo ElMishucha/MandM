@@ -1,0 +1,20 @@
+#include<iostream>
+#include <cmath>
+#include <vector>
+#include <algorithm>
+
+using namespace std;
+
+int main() {
+    long long int a, b;
+
+    cin >> a >> b;
+    a = abs(a);
+    b = abs(b);
+    while (b) {
+        a = a % b;
+        swap(a, b);
+    }
+    cout << a << endl;
+
+}

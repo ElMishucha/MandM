@@ -1,0 +1,50 @@
+#include<iostream>
+#include <cmath>
+#include <vector>
+#include <algorithm>
+
+using namespace std;
+
+bool IsSimple(long int n) {
+	if (n == 1) {
+		return false;
+	}
+	for (long int i = 2; i * i <= n; i++) {
+		if (n % i == 0) {
+			return false;
+		}
+	}
+	return true;
+}
+
+int main() {
+	long int n;
+	long int a = -1;
+	long int b = -1;
+
+	cin >> n;
+
+	a = n;
+	b = n;
+
+	while (true) {
+		if (IsSimple(a)) {
+			break;
+		}
+		a--;
+	}
+
+	while (true) {
+		if (IsSimple(b)) {
+			break;
+		}
+		b++;
+
+	} 
+	if (n - a > b - n) {
+		cout << b;
+	}
+	else {
+		cout << a << endl;
+	}
+}

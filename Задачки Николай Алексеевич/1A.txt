@@ -1,0 +1,31 @@
+#include<iostream>
+#include <cmath>
+
+using namespace std;
+
+bool IsSimple(long int n) {
+	if (n == 1) {
+		return false;
+	}
+	for (long int i = 2; i * i <= n; i++) {
+		if (n % i == 0) {
+			return false;
+		}
+	}
+	return true;
+}
+
+int main() {
+	long int a = -1;
+	long int s = 0;
+	while (true) {
+		cin >> a;
+		if (a == 0) {
+			break;
+		}
+		if (IsSimple(a)) {
+			s++;
+		}
+	}
+	cout << s << endl;
+}	

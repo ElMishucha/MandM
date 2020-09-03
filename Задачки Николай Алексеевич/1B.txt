@@ -1,0 +1,28 @@
+#include <iostream>
+#include <math.h>
+using namespace std;
+int main()
+{
+    long long int tmp=0;
+    cin>>tmp;
+    long long int d=2;
+    while (d)
+    {
+        while (tmp % d == 0)
+        {
+            tmp /= d;
+            cout<<d;
+            if(tmp != 1)
+                cout<<"*";
+        }
+        if(tmp==1)
+            break;
+
+        if(d*d >=tmp && tmp!=1)
+        {
+            cout<<tmp;
+            break;
+        }
+        d++;
+    }
+}

@@ -1,0 +1,64 @@
+#include<iostream>
+#include <cmath>
+#include <vector>
+#include <algorithm>
+
+using namespace std;
+
+bool IsSimple(long int n) {
+	if (n == 1) {
+		return false;
+	}
+	for (long int i = 2; i * i <= n; i++) {
+		if (n % i == 0) {
+			return false;
+		}
+	}
+	return true;
+}
+int Factorization(int tmp)
+{
+	int ans = 0;
+	long long int d = 2;
+	while (d)
+	{
+		while (tmp % d == 0)
+		{
+			tmp /= d;
+			ans++;
+
+		}
+		if (tmp == 1)
+			break;
+
+		if (d * d >= tmp && tmp != 1)
+		{
+			ans++;
+			break;
+		}
+		d++;
+	}
+	return ans;
+}
+bool HalfSimple(int a)
+{
+	return Factorization(a) == 2;
+}
+int main()
+{
+	int n;
+	cin >> n;
+	int i = 0;
+	int t = 0;
+	while(i<n)
+	{
+		t++;
+		if (HalfSimple(t))
+			i++;
+		if (i == n) {
+			break;
+		}
+	}
+	cout << t << endl;
+
+}
